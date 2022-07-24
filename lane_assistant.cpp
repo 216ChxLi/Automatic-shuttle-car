@@ -51,13 +51,13 @@ protected:
     double ego_velocity_;
 
     // parameters in Aufgabe2
-    Point ego_leftS, ego_leftE;							 // ego left lane start and end point
-	Point ego_rightS, ego_rightE;                        // ego right lane start and end point
+    Point ego_leftS, ego_leftE;				 // ego left lane start and end point
+    Point ego_rightS, ego_rightE;                        // ego right lane start and end point
     Point directionS, directionE;                        // car driving direction
     double rows = 512, cols = 720;                       // original Picture size (720, 512).
 
     // parameters in Aufgabe 3
-    double steering_input;				// Send the steeering input value to Tronis Socket
+    double steering_input;			// Send the steeering input value to Tronis Socket
     double steering_pc = 0.7;			// PID Controller:	partitial			when the car direction is vertical to the lane, the maximum steering input value
     double steering_dc = -0.0005;		// PID Controller:	differential
     double Err_steering;
@@ -75,7 +75,7 @@ protected:
     double dErr_velocity;
     double sumErr_velocity;
 	
-	//**************************
+    //**************************
     // Aufgabe 2: lane detection
     vector<Vec4d> setLanes()
     {
@@ -85,14 +85,14 @@ protected:
         cv::Mat gray_img;		// Convert the image to grayscale
         cvtColor( blur_img, gray_img, cv::COLOR_BGR2GRAY );
 
-		cv::Mat binary_img;		// transfer the image to binary one
+	cv::Mat binary_img;		// transfer the image to binary one
         cv::threshold( gray_img, binary_img, 120, 255, cv::THRESH_BINARY );
 
-		cv::Mat edge_img;  // Edge detection
+	cv::Mat edge_img;  // Edge detection
         Canny( binary_img, edge_img, 100, 200 );  
 
-		// Another way to get the edge image:	Sobel Derivitive()
-		//Mat grad_x, grad_y;
+	// Another way to get the edge image:	Sobel Derivitive()
+  //	  Mat grad_x, grad_y;
   //      Mat abs_grad_x, abs_grad_y;
   //      Sobel( binary_img, grad_x, CV_16S, 1, 0, 1, 1, 0, BORDER_DEFAULT );
   //      Sobel( binary_img, grad_y, CV_16S, 0, 1, 1, 1, 0, BORDER_DEFAULT );
@@ -100,7 +100,7 @@ protected:
   //      convertScaleAbs( grad_y, abs_grad_y );
   //      addWeighted( abs_grad_x, 0.5, abs_grad_y, 0.5, 0, edge_img );
 
-		// set a polygon mask to only keep thed region of interest
+	// set a polygon mask to only keep thed region of interest
         cv::Mat mask = Mat::zeros( image_.size(), edge_img.type() );
         const int num = 6;
         Point points[1][num] = {Point( 0, rows ),
@@ -112,11 +112,11 @@ protected:
         const Point* polygon = points[0];
         fillConvexPoly( mask, polygon, num, Scalar( 255 ) );
         
-		cv::Mat roi_img;
+	cv::Mat roi_img;
         cv::bitwise_and( edge_img, mask, roi_img );
         imshow( "Canny output: Region of Interest", edge_img );
 
-		vector<Vec4d> raw_lanes;  // will hold all the results of the detection
+	vector<Vec4d> raw_lanes;  // will hold all the results of the detection
         HoughLinesP( roi_img, raw_lanes, 1, CV_PI / 180, 50, 50, 10 );  // Probabilistic Line Transform
 
         return raw_lanes;
@@ -208,10 +208,10 @@ protected:
         line( image_, Point( directionS.x, directionS.y ), Point( directionE.x, directionE.y ),Scalar( 0, 255, 0 ), 3, LINE_AA );
     }
 
-	//**************************
-	//Aufgabe 3: Steering control
+    //**************************
+    //Aufgabe 3: Steering control
     
-	void setSteeringInput()
+    void setSteeringInput()
     {
 
         if( directionS.x == directionE.x )  // when the car drives straight
@@ -244,7 +244,7 @@ protected:
     }
 
     //**************************
-	// Aufgabe 4: Throttle control
+    // Aufgabe 4: Throttle control
     bool processPoseVelocity( tronis::PoseVelocitySub* msg )
     {
         ego_location_ = msg->Location;
@@ -260,7 +260,7 @@ protected:
         return true;
     }
 
-	double processDistance( tronis::LocationSub location )
+    double processDistance( tronis::LocationSub location )
     {
         float pos_x = location.X / 100;
         float pos_y = location.Y / 100;
@@ -269,7 +269,7 @@ protected:
         return dist;
     }
 
-	void setThrottleInput(double dist)
+    void setThrottleInput(double dist)
     {
         Err_velocity = 60 - ego_velocity_;  // set the max speed to 60km/h
         sumErr_velocity = lastErr_velocity + Err_velocity;
@@ -322,11 +322,11 @@ protected:
                     socket.send( tronis::SocketData( prefix_throttle + to_string( throttle_input ) ) );
                 }
                 else
-				{
+		{
                     setThrottleInput( 100.0 );
                     socket.send(tronis::SocketData( prefix_throttle + to_string( throttle_input ) ) );
                     cout << "lane or track got detected, please ignore !" << endl;
-				}
+		}
             }
         }
         else
