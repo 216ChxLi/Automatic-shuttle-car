@@ -1,4 +1,4 @@
-# Automatic shuttle car
+# Automatisiertes Schuttlefahrzeug
 This project is based on TWT Tronis Simulation. The algorithms are realized through OpenCV 
 
 Include the following functions:
