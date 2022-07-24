@@ -4,6 +4,6 @@ this Project implements some ADAS functions in Tronis simulation environment bas
 Include the following functions:
 1. Lane detection
 2. Lane keeping
-3. velocity control 
+3. velocity control
 
-Uploading TRONIS_Simulation.mov…
+Demo
