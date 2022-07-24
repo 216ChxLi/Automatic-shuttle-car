@@ -1,2 +1,7 @@
 # Automatic-shuttle-car
-Lane detection&amp;keeping and velocity control automatically based on OpenCV and TWT Tronis Simulation 
+This project is based on TWT Tronis Simulation. The algorithms are realized through OpenCV 
+
+Include the following functions:
+Lane detection
+Lane keeping
+velocity control 
