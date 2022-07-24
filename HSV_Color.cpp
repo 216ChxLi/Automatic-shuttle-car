@@ -1,7 +1,9 @@
 	vector<Vec4d> setWarnings_HSV()
     {
-        cv::Scalar scalarL = cv::Scalar( 26, 43, 46 );
-        cv::Scalar scalarH = cv::Scalar( 34, 255, 255 );
+        cv::Scalar scalarL = cv::Scalar( 0, 90, 90 );
+        cv::Scalar scalarH = cv::Scalar( 30, 255, 255 );	
+	//cv::Scalar scalarL = cv::Scalar( 26, 43, 46 );
+        //cv::Scalar scalarH = cv::Scalar( 34, 255, 255 );
 
 		cv::Mat img_hsv;
         cv::cvtColor( image_, img_hsv, COLOR_BGR2HSV );
