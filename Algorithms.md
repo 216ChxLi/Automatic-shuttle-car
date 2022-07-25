@@ -16,15 +16,14 @@
    a. Locate the line's position to make sure it is in the left or right part of the image
    b. Use all the points on the line to fit into one line.
    c. Set the start and end of the line. Show on the image
-
 8. Additional Information:
-1. For more explicit detection, man can transfer the image into bird eye's view
-   https://nikolasent.github.io/opencv/2017/05/07/Bird%27s-Eye-View-Transformation.html
-2. Simple Lane Detection with OpenCV
-   https://medium.com/@mrhwick/simple-lane-detection-with-opencv-bfeb6ae54ec0
-3. For detecting the yellow warning lines, we should add color distinguish function in the algorithms
-   https://blog.csdn.net/qq7835144/article/details/95048117
-   https://cloud.tencent.com/developer/article/1471688
+   a. For more explicit detection, man can transfer the image into bird eye's view
+      https://nikolasent.github.io/opencv/2017/05/07/Bird%27s-Eye-View-Transformation.html
+   b. Simple Lane Detection with OpenCV
+      https://medium.com/@mrhwick/simple-lane-detection-with-opencv-bfeb6ae54ec0
+   c. For detecting the yellow warning lines, we should add color distinguish function in the algorithms
+      https://blog.csdn.net/qq7835144/article/details/95048117
+      https://cloud.tencent.com/developer/article/1471688
 
 # Aufgabe 3: Steering Control
 1. Use the start and end point of the line to get the slope.
