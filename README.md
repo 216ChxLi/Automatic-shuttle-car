@@ -6,5 +6,6 @@ Include the following functions:
 2. Lane keeping
 3. velocity control
 
-Demo
-Uploading Short_Version.mp4…
+Tronis Settings
+![Blueprint](https://user-images.githubusercontent.com/92917022/180791811-2cb9696b-1b59-48ad-ba5b-ca5883825e50.PNG)
+![Blueprint2](https://user-images.githubusercontent.com/92917022/180791818-faa0da4e-697b-454b-bb50-6fe82cc4aea0.PNG)
