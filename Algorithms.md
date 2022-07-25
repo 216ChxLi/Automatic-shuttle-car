@@ -1,4 +1,6 @@
-# Aufgabe 1: Tronis Situation
+# Aufgabe 1: Arrange Tronis Situation
+![Blueprint](https://user-images.githubusercontent.com/92917022/180791811-2cb9696b-1b59-48ad-ba5b-ca5883825e50.PNG)
+![Blueprint2](https://user-images.githubusercontent.com/92917022/180791818-faa0da4e-697b-454b-bb50-6fe82cc4aea0.PNG)
 
 # Aufgabe 2: Lane Detection
 1. Use Gaussian Blur with a 3*3 kernel to remove noise and smooth the image.
